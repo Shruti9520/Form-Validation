@@ -1,0 +1,17 @@
+body{
+	background-image: url(image.jpg);
+}
+myForm[novalidate]input{
+    border-left-width: 8px;
+	border-color: orange;
+	border-style:solid;
+}
+input[required].ng-pristine{
+	border-color: red;
+}
+input.ng-dirty.ng-invalid{
+	border-color: orange;
+
+}
+input.ng-valid.ng-dirty{
+	border-color: lightgreen;

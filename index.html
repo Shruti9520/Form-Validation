@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+  <title>Form</title>
+  <meta charset="utf-8">
+  <!--Bootstrap 3-->
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <!--Font-awesome-->
+     <link  rel="stylesheet"  href="/home/shruti/Desktop/BLOG/font-awesome-4.6.3/css/font-awesome.min.css">
+  <!--For AngularJS-->
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js">
+
+	</script>
+	<!--Other-->
+	<link rel="stylesheet" href="style.css">
+	 <link rel="icon" href="select.ico" type="image" sizes="16x16">
+</head>
+<body>
+<div class="text-center" style="padding-top:100px;">
+
+<h1>Register Here</h1>
+ 
+
+</div>
+<div class="text-center" style="padding-top:150px;">
+<button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">Click Me</button>
+</div>
+<!-- Modal -->
+<div id="myModal" class="modal fade" role="dialog">
+  <div class="modal-dialog  ">
+
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h4 class="modal-title">Fill the following to register</h4>
+      </div>
+      <div class="modal-body">
+        <form  ng-app="myApp"  ng-controller="validateCtrl"
+    name="myForm" novalidate>
+
+<p>Username:
+  <input type="text" name="user" ng-model="user" required>
+  <span style="color:red" ng-show="myForm.user.$dirty && myForm.user.$invalid">
+  <span ng-show="myForm.user.$error.required">Username is required.</span>
+  </span>
+</p>
+
+<p>Email:
+  <input type="email" name="email" ng-model="email" required >
+  <span style="color:red" ng-show="myForm.email.$dirty && myForm.email.$invalid">
+  <span ng-show="myForm.email.$error.required">Email is required.</span>
+  <span ng-show="myForm.email.$error.email">Invalid email address.</span>
+  </span>
+</p>
+<p>Password:
+  <input type="password" name="password" ng-model="password" required ng-minlength='6'>
+  <span style="color:red" ng-show=" myForm.password.$dirty && myForm.password.$invalid">
+  <span ng-show="myForm.password.$error.required">Password is required.</span>
+  <span ng-show="myForm.password.$error.minlength">Password must be atleast 6 characters.</span>
+  </span>
+</p>
+<p>
+ <button type="button" ng-disabled='myForm.$invalid' class="btn btn-primary">
+   Submit
+ </button>
+</p>
+
+</form>
+
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-warning" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+
+  </div>
+</div>
+ <script>
+var app = angular.module('myApp', []);
+app.controller('validateCtrl', function($scope) {
+    $scope.user = 'Shruti Singh';
+    $scope.email = 'shruti.singh@gmail.com';
+});
+</script>
+</body>
+</html>
